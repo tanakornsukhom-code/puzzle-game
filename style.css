@@ -14,7 +14,7 @@ h1{font:26px/1.35 'Itim',cursive;margin:12px 0 5px}
 p{margin:0;font-size:12px;color:#81735f}
 .bubble{position:static;margin:0 16px 12px;padding:9px 13px;border:1px solid #c5d0b9;border-radius:12px;background:#edf1e5;font:15px/1.5 'Itim',cursive;min-height:41px;text-align:center;pointer-events:none}
 /* Every viewport shares the same scene geometry and item lanes. */
-#scene{position:relative;aspect-ratio:1142/1377;overflow:hidden;isolation:isolate;background:#e2ebcf url('assets/cafe-reference-v5.png') center/100% 100% no-repeat;border-block:1px solid #b38d67}
+#scene{position:relative;aspect-ratio:1142/1377;overflow:hidden;isolation:isolate;background:#e2ebcf url('assets/room-shell-v6.png') center/100% 100% no-repeat;border-block:1px solid #b38d67}
 .wall-fallback{position:absolute;inset:0;z-index:-2;background:#dce4ca}.art-ready .wall-fallback{display:none}
 .sign{display:none}
 #scene::before{content:'';position:absolute;inset:0;z-index:10;background:#30251f;opacity:.02;pointer-events:none;transition:opacity .4s ease}
@@ -74,3 +74,17 @@ dialog .level-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}dial
 
 
 
+/* Room layers share the scene's coordinates; the containers create no paint layer. */
+#roomObjects{position:static;pointer-events:none}
+#objects{pointer-events:none}
+#objects .obj{pointer-events:auto}
+#objects .scenery-curtain{pointer-events:none}
+.room-object{position:absolute;display:grid;place-items:center;margin:0;padding:0;border:0;background:none;pointer-events:none;user-select:none}
+.room-art{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none}
+.room-control{pointer-events:auto;touch-action:manipulation;min-width:36px;min-height:36px;border-radius:5px}
+.room-control:focus-visible{outline:3px solid #3c7564;outline-offset:3px}
+#objects .obj[data-layout-role="prop"]:not(.dragging){z-index:5}
+
+.room-steam{position:absolute;left:42%;top:-12px;color:#fff6df;font-size:22px;line-height:1;text-shadow:0 1px 2px #5b433466;pointer-events:none;animation:steam-rise 1.2s ease-out infinite}
+@keyframes steam-rise{from{opacity:.85;transform:translateY(0)}to{opacity:0;transform:translateY(-12px)}}
+.room-object[data-fit="cover"]{overflow:hidden}

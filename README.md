@@ -136,3 +136,7 @@ assets/cafe-integrated-v4.png เป็นพื้นหลังปัจจ�
 
 ## Layout ตามภาพอ้างอิงผู้ใช้
 assets/cafe-reference-v5.png เป็นฉากปัจจุบัน มีประตูกลางร้านและตำแหน่งเฟอร์นิเจอร์ตามภาพ ไอเทมไม่เกิน3ชิ้นจัดใหญ่แถวเดียว มากกว่านั้นใช้2แถว; ป้ายเป็นsign-table-open/closed.png ไอเทมfish/cup/ice ใช้ชื่อภาพ *-reference.png พรอมป์ต์เต็ม assets/reference-v5-prompts.txt และสคริปต์แยกภาพ extract-reference-assets.py
+
+## Scene graph: แยกทุกอย่างเป็น Object
+ไฟล์ scene-layout.js เป็นศูนย์กลางตำแหน่ง ขนาด สถานะ และเลเยอร์; game.js สร้างวัตถุฉากใน #roomObjects แยกจากไอเทมปริศนา พื้นหลัง assets/room-shell-v6.png มีแค่ผนังกับพื้น เฟอร์นิเจอร์/ชิบะ/ประตู/โคมไฟ/ต้นไม้/เคาน์เตอร์ใช้ PNG แยก assets/scene/ ดู SCENE-OBJECTS.md สำหรับรายการทุก ID และวิธีแก้ตำแหน่ง
+ไฟล์ใหม่: check-scene-assets.cjs ตรวจภาพ, extract-scene-objects.py แยกภาพตามขอบจริง, assets/scene-objects-preview.jpg ตรวจภาพรวม, assets/scene-v6-prompts.txt เก็บพรอมป์ต์

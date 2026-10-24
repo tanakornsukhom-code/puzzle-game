@@ -80,3 +80,9 @@ User clarified firstlevel issue as images/positions overlapping. Existing live f
 - <=3 portableprops use large3columnlayout;4+ uses compact4x2.125stages x320/390/460 geometry passes,nooutbounds/propintersections,max7. Defaultdecorcurtainclosed matchesreference; requiredaction states preserved and4lightmodes unchanged.
 - check.cjs PASS30actualpointertappaths and firstdrag bothways. Allassetpaths exist. Live composition/captionfit pendingcoordinator.
 - Final live21a16a0 verified: reference composition withcentraldoor/tabletopOPEN/cabinetvine/catseat and fishplate/latte/ice; allimagesloaded. Firstlevel solved via actual fish→cup clicks. Corrected catvisiblepaws y38.5 to touchpinkseat (spritepadding compensation). Proof render-deploy-reference-layout.png. All30 logic/geometry suites passed; native mobiletouch/humanplaytest stillpending.
+## QA round 7 — Every scene element is an object
+
+- Root image QA: shell contains onlywall/floor; 13 transparent spritefiles independentlyextracted, no fixedgridcropping.
+- Declarative scene-layout.js: 11uniqueroomobjects,13stateassets, centralized fixture/actor/prop geometry. #roomObjects excludes gameplay.objselectors.
+- Dev: door toggles; espresso steam; pendant sharedswitchstate; requiredswitchlevel23/29 cannot bypass. Reset recreates11objects no duplicates. Servicecounter fill and pastrycase cover reflect referenceframe.
+- Tester independent nodecheck.cjs and nodecheck-scene-assets.cjs PASS; all30paths and newscene state/asset rules PASS. Rootlive finalalignment/visibility pending.
