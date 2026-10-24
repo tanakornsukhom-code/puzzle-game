@@ -96,3 +96,8 @@ dialog .level-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}dial
 #objects .obj[data-type="cat"][data-moved="true"]:not(.dragging){z-index:6}
 #objects .obj[data-resident="true"] small{display:none}
 
+/* The clue is a small fish-shaped mark on the belly, not another cat. */
+#objects .obj[data-type="shadow"]{filter:none;cursor:pointer;min-width:36px;min-height:36px}
+#objects .obj[data-type="shadow"] .item-art{filter:brightness(.28);opacity:.55}
+#objects .obj[data-type="shadow"] small{opacity:0}
+#objects .obj[data-type="shadow"]:hover small,#objects .obj[data-type="shadow"]:focus-visible small{opacity:1}
