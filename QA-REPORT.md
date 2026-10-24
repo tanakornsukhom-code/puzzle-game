@@ -59,3 +59,4 @@ User clarified firstlevel issue as images/positions overlapping. Existing live f
 - Moved bubble/caption outside scene; moved hatch away from props, separated switch/shelf and frame/cat; resident cat is noninteractive so cannot steal a hit.
 - New generated fat-cat-boss.png restores grumpy orange chubby cafe boss. Complete original ears/tail/paws preserved.
 - check.cjs passes all30 actual pointer-tap solution paths; firstlevel tap and drag both directions; new rendered version awaiting final live visual verification.
+- Final live check on deployed bd58755: navigated all30 levels through actual UI; initial portable-item DOM rectangles had zero overlaps, exactly1 cat and zero horizontal overflow in every level. Newly laid-out firstlevel completed via real drag fish→cup. All scene images loaded. Screenshot: render-deploy-layout-cat.png (local QA artifact, ignored by Git). Human difficulty/native mobile touch remains unverified.
