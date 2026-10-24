@@ -66,3 +66,9 @@ User clarified firstlevel issue as images/positions overlapping. Existing live f
 - Default decorative curtains open; teaching/dark levels still start opposite required action. Sign captions match actual state and sit inside plaque.
 - Dev + Optimizer merged; node check.cjs PASS all30 solutions/pointer paths/counter geometry/max7/fatcat invariants. Final live visual pending coordinator.
 - Final live visual verified e8decaa: gardenbackground, fatcat, window/curtain/cabinet and OPEN plaque render together without avoidable intersection; all12 scene images loaded. Plaque text fits face; controls/counter retain clear separation. Proof screenshot render-deploy-cafe-garden.png. Native mobile touch/humanplaytest remains pending.
+## QA round 5 — Integrated furniture and functional lighting
+
+- Confirmed rootcause: switch previously changed sprite only; curtain alone changed roomshade. Added syncRoomLighting for every switch/curtain change and load/reset.
+- Four visible lightstates: on/open .02, on/closed .12, off/open .32, off/closed .62 overlay. Overlay above artwork and ignores input; switch remains reachable.
+- Background cafe-integrated-v4.png removes duplicate barebench; storageottoman sprite now sole seatbase. Plant anchoredfloor. Cabinet/frame/sign scaled as wallfixtures; switch at actualwallheight; hatch oncentralfloor56–65%, actorfeet end56, portableprops70%+.
+- Tests pass all30 solution/pointer paths, real class truth tables at eachstage, switch prerequisite/hold alternatives, reset, 4lightcombos; livecomputedstyle verification pending coordinator.
