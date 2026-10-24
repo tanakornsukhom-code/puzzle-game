@@ -117,3 +117,10 @@ Live retest on deployed 338d5b1: level 3 Shiba visible above red stool cushion, 
 Actual deployed level 5: lamp-to-cat revealed a purple cat/fish evidence sprite at the old left-stool position, while the fat cat sat at the right cushion; yellow duplicate-cat drop shadow also detached from the clue. Request: bind fish evidence to the current cat belly and retain alignment when the cat moves, with independent evidence hit target and reset cleanup. Live retest follows after implementation/deploy.
 
 Live retest on deployed 5fb24fe: level 5 dragged cat before lamp reveal, confirmed fish evidence appears on current belly instead of left stool. Dragged cat again after reveal: cat x62.0426/y39.9164 and fish x69.0426/y48.9464, preserving +7/+9.03 attachment offset and layer7. Screenshot render-deploy-level5-evidence.png shows small fish silhouette over belly with no yellow cat duplicate. Clicked actual evidence button and completed level. 30-level simulation plus targeted moved-before/after-reveal/cancel/reset/deduplication checks passed.
+
+## QA round 12 — Thai wordplay
+Redesigned existing levels 12 (หวานเป็นลม), 15 (น้ำท่วมปาก), 18 (หูผึ่ง/หูผึ้ง) with actual pairing changes, step-specific progressive hints and state feedback. Preserved 30 level IDs and saved completion migration. The ผึ่ง/ผึ้ง joke uses similar sounds with different tones; it is not a strict homophone.
+
+Independent automated checks: all 30 solutions, exact legacy IDs, new ordered pairs, wrong/future action guards, 3 hints per stage and cap/reset, cat movement regressions, final fan/water/bee states all pass.
+
+Actual public HTTPS browser on deployed e0a3ec5: completed all three redesigned levels through visible UI taps. L12 water->seed, bee->flower, honey->fan, fan->cup; L15 wrong bone->dog blocked, hint 1 explained literal water, cup->dog, water->flower, bone->dog passed; L18 water->flower, bee->flower, bee->dog passed with explanatory success text. Saved render-deploy-thai-wordplay.png. Physical mobile touch and player comprehension/Flow trials remain untested.
