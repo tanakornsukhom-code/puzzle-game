@@ -14,14 +14,14 @@ h1{font:26px/1.35 'Itim',cursive;margin:12px 0 5px}
 p{margin:0;font-size:12px;color:#81735f}
 .bubble{position:static;margin:0 16px 12px;padding:9px 13px;border:1px solid #c5d0b9;border-radius:12px;background:#edf1e5;font:15px/1.5 'Itim',cursive;min-height:41px;text-align:center;pointer-events:none}
 /* Every viewport shares the same scene geometry and item lanes. */
-#scene{position:relative;aspect-ratio:2/2.43;overflow:hidden;isolation:isolate;background:#e2ebcf url('assets/cafe-integrated-v4.png') center/100% 100% no-repeat;border-block:1px solid #b38d67}
+#scene{position:relative;aspect-ratio:1142/1377;overflow:hidden;isolation:isolate;background:#e2ebcf url('assets/cafe-reference-v5.png') center/100% 100% no-repeat;border-block:1px solid #b38d67}
 .wall-fallback{position:absolute;inset:0;z-index:-2;background:#dce4ca}.art-ready .wall-fallback{display:none}
 .sign{display:none}
 #scene::before{content:'';position:absolute;inset:0;z-index:10;background:#30251f;opacity:.02;pointer-events:none;transition:opacity .4s ease}
 #scene.curtains-closed::before{opacity:.12}
 #scene.lights-off::before{opacity:.32}
 #scene.lights-off.curtains-closed::before{opacity:.62}
-.scenery-switch{z-index:11}
+.obj.scenery-switch{z-index:11}
 .scene-caption{position:static;display:block;width:100%;margin:0;padding:6px 10px;text-align:center;font:11px/1.5 'Itim',cursive;color:#7c715b;background:#f6edd9;pointer-events:none}
 .obj{position:absolute;background:none;border:0;padding:0;width:20%;height:20%;display:grid;place-items:center;align-content:center;touch-action:none;user-select:none;z-index:3;filter:drop-shadow(0 4px 2px #68482124);transition:filter .15s}
 .obj svg{width:100%;height:100%;overflow:visible;pointer-events:none}
@@ -41,11 +41,11 @@ p{margin:0;font-size:12px;color:#81735f}
 .scenery-curtain::after{content:'';position:absolute;top:0;right:0;bottom:0;width:36px;pointer-events:auto}
 .scenery-window{z-index:2}
 .scenery-cushion{filter:drop-shadow(0 2px 1px #5b433428)}
-.sign-face{position:absolute;left:15%;top:60%;width:70%;height:22%;display:grid;place-items:center;font:14px/1.1 'Itim',cursive;color:#5b4334;pointer-events:none}
+.sign-face{position:absolute;left:22%;top:46%;width:65%;height:30%;display:grid;place-items:center;font:14px/1.1 'Itim',cursive;color:#5b4334;pointer-events:none}
 .scenery-sign small{display:none}
 .scenery-frame[data-clue="floor"]::after{content:'↓';position:absolute;right:4px;bottom:-17px;font-size:30px;line-height:1;color:#5d4529;text-shadow:0 1px #fff3bd;pointer-events:none}
 .scenery[data-art-missing]{outline:1px dashed #947557}.scenery[data-art-missing] small{display:block;opacity:1}
-.resident-cat{position:absolute;left:66%;top:35%;width:27%;height:22%;object-fit:contain;z-index:3;pointer-events:none;user-select:none;filter:drop-shadow(0 3px 2px #68482125)}
+.resident-cat{position:absolute;left:66%;top:36%;width:28%;height:21%;object-fit:contain;z-index:3;pointer-events:none;user-select:none;filter:drop-shadow(0 3px 2px #68482125)}
 #toast{min-height:48px;display:grid;place-items:center;text-align:center;padding:9px 20px;font-size:12px;line-height:1.6;color:#7d6e56}
 footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 24px 12px}
 footer button{border:1px solid #94a58a;background:#dce6d1;border-radius:13px;box-shadow:0 3px #afbea1;padding:8px 13px;font-size:18px;display:grid;line-height:1.1;gap:4px}
@@ -64,5 +64,12 @@ dialog .level-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}dial
 @media(max-height:740px) and (max-width:599px){header{height:58px}.order{padding:10px 20px}h1{font-size:23px;margin:6px 0}#toast{min-height:38px}footer{padding-bottom:8px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+
+
+/* Reference-sized counter tags remain readable without covering adjacent lanes. */
+.obj[data-layout-role="prop"] small{font-size:clamp(12px,3vw,14px);padding:2px 8px;border-radius:9px;background:#fff6dfed;box-shadow:0 2px 3px #5b433414;max-width:108%;bottom:0}
+#scene[data-counter-layout="large"] .obj[data-layout-role="prop"] small{top:100%;bottom:auto;margin-top:4px}
+#scene[data-counter-layout="compact"] .obj[data-layout-role="prop"] small{font-size:clamp(10px,2.7vw,12px);padding:1px 5px;bottom:0}
+.sign-face{font-size:clamp(8px,2vw,11px)}
 
 

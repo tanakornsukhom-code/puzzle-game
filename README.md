@@ -133,3 +133,6 @@ Dev แก้โค้ด → Tester ส่ง request พร้อมวิธ�
 
 ## เฟอร์นิเจอร์และแสงรุ่นล่าสุด
 assets/cafe-integrated-v4.png เป็นพื้นหลังปัจจุบัน ลบม้านั่งที่ซ้ำกับฐานเบาะจัดเก็บออก ปรับเฟอร์นิเจอร์เข้าผนังและฝาพื้นเข้าทางเดิน สวิตช์ควบคุมแสงทั้งฉากร่วมกับม่าน ผ่าน syncRoomLighting; ไฟดับและปิดม่านพร้อมกันจะมืดที่สุด พรอมป์ต์แก้ภาพอยู่ใน assets/cafe-integrated-prompt.txt
+
+## Layout ตามภาพอ้างอิงผู้ใช้
+assets/cafe-reference-v5.png เป็นฉากปัจจุบัน มีประตูกลางร้านและตำแหน่งเฟอร์นิเจอร์ตามภาพ ไอเทมไม่เกิน3ชิ้นจัดใหญ่แถวเดียว มากกว่านั้นใช้2แถว; ป้ายเป็นsign-table-open/closed.png ไอเทมfish/cup/ice ใช้ชื่อภาพ *-reference.png พรอมป์ต์เต็ม assets/reference-v5-prompts.txt และสคริปต์แยกภาพ extract-reference-assets.py

@@ -73,3 +73,9 @@ User clarified firstlevel issue as images/positions overlapping. Existing live f
 - Background cafe-integrated-v4.png removes duplicate barebench; storageottoman sprite now sole seatbase. Plant anchoredfloor. Cabinet/frame/sign scaled as wallfixtures; switch at actualwallheight; hatch oncentralfloor56–65%, actorfeet end56, portableprops70%+.
 - Tests pass all30 solution/pointer paths, real class truth tables at eachstage, switch prerequisite/hold alternatives, reset, 4lightcombos; livecomputedstyle verification pending coordinator.
 - Final live9e22dea accepted: actual computed ::before opacity on/open0.02 → off/open0.32 → off/closed0.62 → on/closed0.12 after UI clicks. Reset restoreson/open. Screenshots render-deploy-light-on.png and render-deploy-light-off.png prove visible change across room+objects. Inspected rightottoman singlebase and wallfixture/floor alignment. No source/runtime blocker observed; native mobile touch and humanplaytest remain pending.
+## QA round 6 — User reference composition
+
+- Matches supplied reference: centralgreenentrydoor, leftcountertabletop sign, top-rightwallcabinet, rightpicture+switch, largecatonottoman, centralfloorhatch and first3largecounterprops.
+- Cleanbackground referencev5 removes bakedinteractiveart, preservescentraldoor/shiba/floor/counter; newtableboards and fishplate/latteartsaucer/icepuddle separated into5transparent320PNGs via verifiedbounds (not gridcropping).
+- <=3 portableprops use large3columnlayout;4+ uses compact4x2.125stages x320/390/460 geometry passes,nooutbounds/propintersections,max7. Defaultdecorcurtainclosed matchesreference; requiredaction states preserved and4lightmodes unchanged.
+- check.cjs PASS30actualpointertappaths and firstdrag bothways. Allassetpaths exist. Live composition/captionfit pendingcoordinator.
