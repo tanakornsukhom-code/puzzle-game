@@ -88,3 +88,16 @@ User clarified firstlevel issue as images/positions overlapping. Existing live f
 - Tester independent nodecheck.cjs and nodecheck-scene-assets.cjs PASS; all30paths and newscene state/asset rules PASS. Rootlive finalalignment/visibility pending.
 
 Live browser verification (0ac8f07): Render Deploy succeeded/Live. All 23 scene/puzzle images loaded; 11 room object nodes present. Door image toggled, pendant and wall switch synchronized, lights-off/curtain-closed overlay opacity 0.62, espresso feedback shown, first puzzle solved through visible tap controls, replay restored initial scene. Composite screenshot: render-deploy-object-scene.png. Physical mobile touch testing remains outside this browser check.
+
+## QA round 8 — Actual deployed browser playtest (2026-10-25)
+Tested the public HTTPS Render site through visible browser controls, screenshots, coordinate clicks, and real pointer drags. This is separate from the 30-level DOM simulation.
+
+Confirmed bug LIVE-001: Level 6 asks to tap the curtain, but clicking the center of the visible closed fabric activated the window underneath. Only its right-edge handle advanced the puzzle. Fixed closed curtain pointer hit area and aligned drag target resolution with rendered z-order. Valid current window combinations remain usable through closed fabric, preserving level 25.
+
+Deployed fix b82452e and retested the actual page:
+- Level 6: center fabric coordinate click now opens curtain and wins.
+- Level 25: mirror-to-covered-window advances stage 2 using both coordinate tap and real drag; curtain remains closed. Opening curtain then clicking exposed window changes window state.
+- Completed levels 1, 6, 7, 8, 9, 10, 25, 29 and 30 through the live UI. Level 1 includes real fish-to-latte drag; level 30 includes all six stages. Tested picture/seat reveals, double-click gesture alternative, hints, replay, menu selection, saved completed count after reload, and level 29 pendant prerequisite guard + two-tap hold alternative.
+- Reset immediately after a level 6 win restored the starting state; subsequent state check found no stale success dialog.
+
+Evidence: render-deploy-live-qa.png (actual final-level success dialog). Scope limits: desktop IAB viewport, not physical Android/iOS; actual 3-second finger hold, multitouch, and remaining 21 levels have not been manually completed in this round. Do not describe all 30 as real-browser playtested.
