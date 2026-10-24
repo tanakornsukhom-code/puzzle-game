@@ -45,7 +45,7 @@ p{margin:0;font-size:12px;color:#81735f}
 .scenery-sign small{display:none}
 .scenery-frame[data-clue="floor"]::after{content:'↓';position:absolute;right:4px;bottom:-17px;font-size:30px;line-height:1;color:#5d4529;text-shadow:0 1px #fff3bd;pointer-events:none}
 .scenery[data-art-missing]{outline:1px dashed #947557}.scenery[data-art-missing] small{display:block;opacity:1}
-.resident-cat{position:absolute;left:66%;top:36%;width:28%;height:21%;object-fit:contain;z-index:3;pointer-events:none;user-select:none;filter:drop-shadow(0 3px 2px #68482125)}
+.resident-cat{position:absolute;left:66%;top:38.5%;width:28%;height:21%;object-fit:contain;z-index:3;pointer-events:none;user-select:none;filter:drop-shadow(0 3px 2px #68482125)}
 #toast{min-height:48px;display:grid;place-items:center;text-align:center;padding:9px 20px;font-size:12px;line-height:1.6;color:#7d6e56}
 footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 24px 12px}
 footer button{border:1px solid #94a58a;background:#dce6d1;border-radius:13px;box-shadow:0 3px #afbea1;padding:8px 13px;font-size:18px;display:grid;line-height:1.1;gap:4px}
@@ -71,5 +71,6 @@ dialog .level-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}dial
 #scene[data-counter-layout="large"] .obj[data-layout-role="prop"] small{top:100%;bottom:auto;margin-top:4px}
 #scene[data-counter-layout="compact"] .obj[data-layout-role="prop"] small{font-size:clamp(10px,2.7vw,12px);padding:1px 5px;bottom:0}
 .sign-face{font-size:clamp(8px,2vw,11px)}
+
 
 
