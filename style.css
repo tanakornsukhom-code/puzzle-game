@@ -21,9 +21,9 @@
 .bubble{pointer-events:none}
 #modal .level-grid{grid-template-columns:repeat(5,1fr)}
 /* The curtain can be grabbed at its right edge; the window remains reachable. */
-.scenery-curtain{pointer-events:none}
+.scenery-curtain{z-index:3;pointer-events:none}
 .scenery-curtain::after{content:'';position:absolute;top:0;right:0;bottom:0;width:36px;pointer-events:auto}
-.scenery-window{z-index:3}
+.scenery-window{z-index:2}
 .bubble{top:43%;left:4%;right:auto;max-width:34%;font-size:15px;padding:8px 10px}
 .scenery-frame[data-clue="floor"]::after{content:'↓';position:absolute;right:4px;bottom:-17px;font-size:30px;line-height:1;color:#5d4529;text-shadow:0 1px #fff3bd;pointer-events:none}
 .action-react{animation:item-react .4s ease-in-out}
@@ -32,3 +32,6 @@
 /* Keep a named control available if an illustration cannot be loaded. */
 .scenery[data-art-missing] small{opacity:1}
 .scenery[data-art-missing]{outline:1px dashed #947557}
+
+.scene-caption{color:#503c35;background:#fff8e6e8;padding:3px 8px;bottom:0}
+

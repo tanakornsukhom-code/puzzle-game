@@ -48,3 +48,4 @@ Dev และ Optimizer รวมการแก้แล้ว Tester ตรว
 - Tester อิสระ: node check.cjs ผ่าน30ด่าน, actual keyboard click listener เล่นครบและ reset states ครบ30, ภาพ20ไฟล์320x320 มีครบ ตรวจ contact sheet ไม่ crop ติดชิ้นอื่น
 - ตรวจรูปใหม่ด้วยตา: window panes open outward, curtain pulled to sides, storage interiors visible on frame/cushion/shelf/hatch/fridge/box
 - ไม่มี verified blocker; final rendered layout/touch และ onboarding difficulty ของผู้เล่นจริงยัง Pending จนตรวจเบราว์เซอร์/ผู้เล่นจริง
+- Live browser check: ภาพโหลดครบ เปิดบานหน้าต่างและตู้เย็นจริงได้; พบชั้นภาพหน้าต่างทับม่านปิด จึงแก้ curtainz3/windowz2 พร้อมปรับความคมชัดข้อความท้ายฉาก และตรวจซ้ำหลัง deploy
