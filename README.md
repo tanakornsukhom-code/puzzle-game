@@ -140,3 +140,6 @@ assets/cafe-reference-v5.png เป็นฉากปัจจุบัน ม�
 ## Scene graph: แยกทุกอย่างเป็น Object
 ไฟล์ scene-layout.js เป็นศูนย์กลางตำแหน่ง ขนาด สถานะ และเลเยอร์; game.js สร้างวัตถุฉากใน #roomObjects แยกจากไอเทมปริศนา พื้นหลัง assets/room-shell-v6.png มีแค่ผนังกับพื้น เฟอร์นิเจอร์/ชิบะ/ประตู/โคมไฟ/ต้นไม้/เคาน์เตอร์ใช้ PNG แยก assets/scene/ ดู SCENE-OBJECTS.md สำหรับรายการทุก ID และวิธีแก้ตำแหน่ง
 ไฟล์ใหม่: check-scene-assets.cjs ตรวจภาพ, extract-scene-objects.py แยกภาพตามขอบจริง, assets/scene-objects-preview.jpg ตรวจภาพรวม, assets/scene-v6-prompts.txt เก็บพรอมป์ต์
+
+แมวอ้วนเป็น Object ลากย้ายได้ทุกด่าน ตำแหน่งอยู่ต่อระหว่างเล่นด่านนั้น และกลับเบาะเมื่อเริ่มใหม่/เปลี่ยนด่าน โดยยังใช้แมวตัวเดียวเป็นเป้าหมายในด่านที่เกี่ยวข้อง
+
