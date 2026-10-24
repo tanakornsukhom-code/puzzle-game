@@ -18,6 +18,15 @@ load(5);if(find('curtain').dataset.sceneState!=='closed')throw Error('QA-05 init
 load(26);if(find('sign').dataset.sceneState!=='open')throw Error('QA-05 sign initial');advance('swipe','sign');if(find('sign').dataset.sceneState!=='closed')throw Error('QA-05 sign close');
 load(10);interact(find('towel'),find('mirror'));if(!$('#toast').textContent.includes('มืด'))throw Error('QA-06 blocked reason');
 load(16);interact(find('key')||{dataset:{type:'key'}},find('door'));if(!$('#toast').textContent.includes('หวง'))throw Error('QA-06 key gate reason');
+// Illustrated fixture state changes are visual inspections, never repeated puzzle rewards.
+load(6);if(Object.keys(sceneryNames).some(t=>!find(t)))throw Error('Fixture missing from set dressing');
+const initialFrame=find('frame').innerHTML;advance('tap','frame');if(!find('frame').innerHTML.includes('frame-open.png'))throw Error('Frame image did not open');
+const reached=stage;tap(find('frame'));if(stage!==reached||!find('frame').innerHTML.includes('frame-closed.png'))throw Error('Inspection repeated puzzle step');
+tap(find('frame'));if(stage!==reached||document.querySelectorAll('.obj').filter(b=>b.dataset.type==='ticket').length!==1)throw Error('Inspection duplicated reward');
+load(6);if(find('frame').innerHTML!==initialFrame)throw Error('Reset failed illustrated initial state');
+load(3);if(!find('fridge').innerHTML.includes('fridge-closed.png'))throw Error('Initial fridge art');tap(find('fridge'));if(stage!==1||!find('fridge').innerHTML.includes('fridge-open.png'))throw Error('Fridge reveal art');tap(find('fridge'));if(stage!==1||document.querySelectorAll('.obj').filter(b=>b.dataset.type==='ghost').length!==1)throw Error('Fridge repeated reveal');
+load(21);advance('tap','frame');advance('tap','cushion');const box=find('box');interact(find('cat'),box);if(box.dataset.sceneState!=='closed')throw Error('Wrong action opened box');interact(find('key'),box);if(box.dataset.sceneState!=='open'||!box.innerHTML.includes('box-open.png'))throw Error('Key did not open box art');
+load(27);advance('tap','curtain');interact(find('lamp'),find('frame'));if(find('frame').dataset.sceneState!=='open'||find('frame').dataset.clue!=='floor')throw Error('Frame pair clue missing');
 // At equal hit coordinates, the visible item layer wins over later-added scenery.
 load(20);const water=add('water',40,74,'น้ำฝน'),flower=find('flower');stage=2;drag={id:7,b:water,left:40,top:74,moved:true};release({pointerId:7,clientX:50,clientY:50});if(!won)throw Error('Drop priority chose scenery over flower');
 `,ctx);

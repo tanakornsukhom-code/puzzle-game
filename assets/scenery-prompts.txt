@@ -1,0 +1,12 @@
+Mode: built-in image_gen. New scene layers and transparent furniture states.
+
+BACKGROUND: clean portrait pet cafe background, cozy hand drawn pastel mint peach cream, brown outlines, soft shading. Empty mint striped upper wall; shiba barista far left behind counter; bare bench right; wood floor strip; empty foreground counter. No baked window, curtains, shelves, pictures, cushion, lamp or sign. Those fixtures are separate interactive sprites. Reference: assets/cafe.png.
+
+FIXTURES: one transparent production atlas, 4 columns × 5 rows. Each sprite centered in central70% of its cell, separated, no text, same warm cartoon illustration as cafe. Paired sprites must match designs and size.
+Row1: window closed; same window open outward; peach curtains closed; same curtains pulled open.
+Row2: fish picture frame closed; same frame hinged open with hidden cubby; cushion flat on storage seat; same cushion raised showing storage.
+Row3: mint wall cabinet doors closed; same cabinet open showing jars; wooden floor hatch closed; same hatch open showing recess.
+Row4: hanging sign blank mint open face; same blank peach closed face; ivory switch off; same switch on glowing.
+Row5: mint refrigerator closed; same refrigerator open revealing interior shelves; cardboard box closed; same box open with flaps.
+
+Generated assets are extracted into individual transparent PNGs with verified bounds. The runtime does not crop a fixed atlas grid.

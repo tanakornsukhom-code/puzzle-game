@@ -40,3 +40,11 @@ Dev และ Optimizer รวมการแก้แล้ว Tester ตรว
 - QA-06 ปรับเบาะแสและเหตุผลที่ขั้นยังทำไม่ได้; ยังไม่ยืนยันว่าความยากสมดุลสำหรับคนจริง
 
 ไม่มี verified blocker ค้างในขอบเขตรอบนี้ ข้อจำกัด browser/mobile/playtest ข้างต้นยัง Pending ไม่ใช่ Passed
+## QA round 2 — Illustrated interactive scenery
+
+- เปลี่ยนฉากเป็น layered background และภาพคู่สถานะ20 PNG แทนเส้น/รูปทรง CSS
+- Dev เพิ่มภาพเปิด–ปิดจริงและการตรวจของตกแต่ง โดยเปิดซ้ำไม่ให้รางวัลซ้ำ; ตู้เย็น/กล่องเปลี่ยนภาพเมื่อ reveal ถูกขั้น
+- Optimizer ลบภาพ placeholder CSS ใช้ aspect ratio เดียวทุก breakpoint จัด handle ม่านแยกจากหน้าต่างและใช้ animation ที่เคารพ reduced-motion
+- Tester อิสระ: node check.cjs ผ่าน30ด่าน, actual keyboard click listener เล่นครบและ reset states ครบ30, ภาพ20ไฟล์320x320 มีครบ ตรวจ contact sheet ไม่ crop ติดชิ้นอื่น
+- ตรวจรูปใหม่ด้วยตา: window panes open outward, curtain pulled to sides, storage interiors visible on frame/cushion/shelf/hatch/fridge/box
+- ไม่มี verified blocker; final rendered layout/touch และ onboarding difficulty ของผู้เล่นจริงยัง Pending จนตรวจเบราว์เซอร์/ผู้เล่นจริง
