@@ -1,0 +1,9 @@
+Built-in image_gen; transparent_background: true.
+Production sprite atlas, 1536x1152, 8 columns x 6 rows. Centered isolated objects in equal cells, warm brown outlines, pastel mint peach butter yellow, soft painted shading, cozy hand drawn pet cafe style. Transparent padding, no UI frames, no text, no overlap.
+Row 1: mackerel fish; coffee cup; cat house; takeaway bag; shiba head; open dog mouth; receipt; bone biscuit.
+Row 2: fridge; ghost; ice; table lamp; orange cat; cat shadow with yellow fish on belly; key; clock.
+Row 3: service bell; moon; sun; flower; watering can; seedling; bee; honey.
+Row 4: mirror; phone; battery; plug/socket; umbrella; rain cloud; towel; fan.
+Row 5: cake; candle; balloon; box; magnet; musical note; door; soap.
+Row 6: sponge; plate; star; light bulb; coffee bean; milk; sugar; croissant.
+First 44 cells consumed by game.js. Last four reserved for future levels.

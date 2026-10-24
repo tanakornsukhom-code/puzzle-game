@@ -1,0 +1,12 @@
+const fs=require('node:fs');
+let source=fs.readFileSync('game.js','utf8');
+const keys=['fish','cup','house','bag','dog','mouth','ticket','bone','fridge','ghost','ice','lamp','cat','shadow','key','clock','bell','moon','sun','flower','water','seed','bee','honey','mirror','phone','battery','plug','umbrella','cloud','towel','fan','cake','candle','balloon','box','magnet','note','door','soap','sponge','plate','star','light'];
+const start=source.indexOf('const wrap=');const end=source.indexOf('const levels=');
+if(start<0||end<0)throw Error('Expected existing art definitions');
+const replacement=`// Generated sprite atlas: 8 columns x 6 rows, transparent PNG.\nconst spriteKeys=${JSON.stringify(keys)};\nconst art=Object.fromEntries(spriteKeys.map((key,i)=>[key,\`<span class="item-art" aria-hidden="true" style="--sprite-x:\${i%8*100/7}%;--sprite-y:\${Math.floor(i/8)*100/5}%"></span>\`]));\n`;
+source=source.slice(0,start)+replacement+source.slice(end);
+const a=source.indexOf('const token=');const b=source.indexOf('const item=',a);if(a<0||b<0)throw Error('Expected token definitions');source=source.slice(0,a)+source.slice(b);
+fs.writeFileSync('game.js',source);
+fs.appendFileSync('style.css', '\n/* Generated transparent atlas; hit areas remain unchanged. */\n.item-art{display:block;width:100%;aspect-ratio:1;background-image:url("assets/items-atlas-v1.png");background-size:800% 600%;background-position:var(--sprite-x) var(--sprite-y);background-repeat:no-repeat;pointer-events:none}.obj{align-content:center}.obj small{z-index:1}\n');
+const readme=fs.readFileSync('README.md','utf8').replace('ส่วนวัตถุโต้ตอบเป็น SVG ใน game.js','วัตถุโต้ตอบทั้ง 44 แบบใช้ภาพเจนพื้นหลังโปร่งใสใน assets/items-atlas-v1.png (ตาราง 8 × 6) แทน SVG และอีโมจิเดิม');fs.writeFileSync('README.md',readme);
+console.log('44 object types mapped to generated atlas.');
