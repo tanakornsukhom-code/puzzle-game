@@ -65,3 +65,4 @@ User clarified firstlevel issue as images/positions overlapping. Existing live f
 - Design: explicit service-left / clear middle / cat seating-right zones; ivory botanical wall, sage wainscoting, honey oak, brass task light, natural light and restrained plants. Background anchors and prop counter unchanged.
 - Default decorative curtains open; teaching/dark levels still start opposite required action. Sign captions match actual state and sit inside plaque.
 - Dev + Optimizer merged; node check.cjs PASS all30 solutions/pointer paths/counter geometry/max7/fatcat invariants. Final live visual pending coordinator.
+- Final live visual verified e8decaa: gardenbackground, fatcat, window/curtain/cabinet and OPEN plaque render together without avoidable intersection; all12 scene images loaded. Plaque text fits face; controls/counter retain clear separation. Proof screenshot render-deploy-cafe-garden.png. Native mobile touch/humanplaytest remains pending.
