@@ -88,3 +88,5 @@ dialog .level-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}dial
 .room-steam{position:absolute;left:42%;top:-12px;color:#fff6df;font-size:22px;line-height:1;text-shadow:0 1px 2px #5b433466;pointer-events:none;animation:steam-rise 1.2s ease-out infinite}
 @keyframes steam-rise{from{opacity:.85;transform:translateY(0)}to{opacity:0;transform:translateY(-12px)}}
 .room-object[data-fit="cover"]{overflow:hidden}
+/* A closed curtain is a full touch target; an open one exposes the window. */
+#objects .scenery-curtain[data-scene-state="closed"]{pointer-events:auto}
