@@ -10,3 +10,5 @@ Row4: hanging sign blank mint open face; same blank peach closed face; ivory swi
 Row5: mint refrigerator closed; same refrigerator open revealing interior shelves; cardboard box closed; same box open with flaps.
 
 Generated assets are extracted into individual transparent PNGs with verified bounds. The runtime does not crop a fixed atlas grid.
+
+FAT CAT: Built-in image_gen, transparent alpha. Very fat round orange tabby cafe boss, huge belly, tiny paws, fluffy cheeks, short feet, half closed unimpressed eyes, tiny straight mouth, curled striped tail. Full body with ears/tail/paws, warm brown outlines, pastel orange cream shading, cozy2D hand drawn pet cafe style, no furniture/background/text. Saved as assets/fat-cat-boss.png.

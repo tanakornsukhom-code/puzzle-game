@@ -1,6 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 let all=[];class El{constructor(){this.dataset={};this.style={};this.attrs={};this.children=[];this.listeners={};this.rect={left:0,top:0,right:100,bottom:100,width:100,height:100};this.classList={add(){},remove(){},toggle(){}}}setAttribute(k,v){this.attrs[k]=v}getAttribute(k){return this.attrs[k]}append(e){this.children.push(e);all.push(e)}replaceChildren(){for(const e of this.children)all=all.filter(x=>x!==e);this.children=[]}remove(){all=all.filter(x=>x!==this)}addEventListener(type,fn){this.listeners[type]=fn}getBoundingClientRect(){return this.rect}setPointerCapture(id){this.capture=id}hasPointerCapture(id){return this.capture===id}releasePointerCapture(){this.capture=null}showModal(){this.open=true}close(){this.open=false}}
-const ids={};const document={querySelector(s){if(s.startsWith('#'))return ids[s]??=new El();const m=s.match(/data-type="(.*?)"/);return m?all.find(e=>e.dataset.type===m[1]):null},querySelectorAll(s){return s==='.obj'?all:[]},createElement(){return new El()}};
+const ids={};const document={querySelector(s){if(s.startsWith('#'))return ids[s]??=new El();const m=s.match(/data-type="(.*?)"/);return m?all.find(e=>e.dataset.type===m[1]):null},querySelectorAll(s){return s==='.obj'?all.filter(e=>e.className?.split(' ').includes('obj')):[]},createElement(){return new El()}};
 const timers=new Map();let timerId=0;const ctx=vm.createContext({document,localStorage:{getItem(){},setItem(){}},window:{},Image:class{},setTimeout(fn){timers.set(++timerId,fn);return timerId},clearTimeout(id){timers.delete(id)},console});vm.runInContext(fs.readFileSync('game.js','utf8'),ctx);
 vm.runInContext(`muted=true;const find=t=>$('[data-type="'+t+'"]');
 load(5);advance('tap','curtain');$('#hint').onclick();if(!won||!$('#toast').textContent.includes('สำเร็จ'))throw Error('QA-01 solved hint');
@@ -10,7 +10,7 @@ load(0);const held={id:1,b:find('fish')};drag=held;release({pointerId:2},true);i
 load(0);const fish=find('fish'),cup=find('cup');fish.closest=()=>fish;
 $('#objects').listeners.pointerdown({target:fish,button:0,pointerId:1,clientX:1,clientY:1});const owned=drag;
 $('#objects').listeners.pointerdown({target:fish,button:0,pointerId:2,clientX:2,clientY:2});if(drag!==owned)throw Error('QA-03 secondary down stole drag');
-release({pointerId:2},true);if(drag!==owned)throw Error('QA-03 secondary cancel');release({pointerId:1},true);if(drag||fish.style.left!=='16%')throw Error('QA-03 owner cancel');
+release({pointerId:2},true);if(drag!==owned)throw Error('QA-03 secondary cancel');release({pointerId:1},true);if(drag||fish.style.left!=='3%')throw Error('QA-03 owner cancel');
 interact(fish,cup);if(successTimer===null)throw Error('QA-04 timer missing');load(1);if(successTimer!==null)throw Error('QA-04 load retained timer');
 load(0);interact(find('fish'),find('cup'));menu();if(successTimer!==null)throw Error('QA-04 menu retained timer');
 load(22);if(find('curtain').dataset.sceneState!=='open')throw Error('QA-05 initial curtain');advance('tap','curtain');if(find('curtain').dataset.sceneState!=='closed')throw Error('QA-05 curtain close');
@@ -18,6 +18,14 @@ load(5);if(find('curtain').dataset.sceneState!=='closed')throw Error('QA-05 init
 load(26);if(find('sign').dataset.sceneState!=='open')throw Error('QA-05 sign initial');advance('swipe','sign');if(find('sign').dataset.sceneState!=='closed')throw Error('QA-05 sign close');
 load(10);interact(find('towel'),find('mirror'));if(!$('#toast').textContent.includes('มืด'))throw Error('QA-06 blocked reason');
 load(16);interact(find('key')||{dataset:{type:'key'}},find('door'));if(!$('#toast').textContent.includes('หวง'))throw Error('QA-06 key gate reason');
+// First order runs through the same pointer event handlers as touch/mouse input.
+function firstOrderRects(){const scene=$('#scene');scene.rect={left:0,top:0,right:400,bottom:486,width:400,height:486};for(const b of document.querySelectorAll('.obj')){const left=parseFloat(b.style.left)/100*400,top=parseFloat(b.style.top)/100*486,width=parseFloat(b.style.width||20)/100*400,height=parseFloat(b.style.height||20)/100*486;b.rect={left,top,right:left+width,bottom:top+height,width,height};b.closest=()=>b;}}
+function pointerTap(b,id){const r=b.rect,e={target:b,button:0,pointerId:id,clientX:r.left+r.width/2,clientY:r.top+r.height/2};$('#objects').listeners.pointerdown(e);$('#objects').listeners.pointerup(e);}
+for(const reversed of [false,true]){load(0);firstOrderRects();pointerTap(find(reversed?'cup':'fish'),31);pointerTap(find(reversed?'fish':'cup'),31);if(!won)throw Error('First order pointer tap failed');}
+for(const reversed of [false,true]){load(0);firstOrderRects();const a=find(reversed?'cup':'fish'),b=find(reversed?'fish':'cup'),r=a.rect,q=b.rect;$('#objects').listeners.pointerdown({target:a,button:0,pointerId:42,clientX:r.left+r.width/2,clientY:r.top+r.height/2});const end={pointerId:42,clientX:q.left+q.width/2,clientY:q.top+q.height/2};$('#objects').listeners.pointermove(end);$('#objects').listeners.pointerup(end);if(!won)throw Error('First order native drag handler failed');}
+load(0);if($('#objects').children.filter(e=>e.dataset.decor==='resident-cat').length!==1)throw Error('Resident cat missing');load(4);if($('#objects').children.some(e=>e.dataset.decor==='resident-cat'))throw Error('Resident duplicates interactive cat');
+// Every puzzle can be solved through pointer tap events, including gesture alternatives.
+for(let n=0;n<levels.length;n++){load(n);firstOrderRects();const l=levels[n];if(l.steps){while(!won){const before=stage,st=l.steps[stage];firstOrderRects();if(st.action){pointerTap(find(st.a),55);if(st.action!=='tap')pointerTap(find(st.a),55);}else{pointerTap(find(st.a),55);if(st.b)pointerTap(find(st.b),55);}if(stage!==before+1)throw Error('Tap-only path blocked '+n+' step '+before);}}else{if(l.legacy===2)pointerTap(find('dog'),55);if(l.legacy===3)pointerTap(find('fridge'),55);firstOrderRects();pointerTap(find(l.pair[0]),55);pointerTap(find(l.pair[1]),55);if(l.legacy===4){firstOrderRects();pointerTap(find('shadow'),55);}}if(!won)throw Error('Tap-only puzzle incomplete '+n);}
 // Illustrated fixture state changes are visual inspections, never repeated puzzle rewards.
 load(6);if(Object.keys(sceneryNames).some(t=>!find(t)))throw Error('Fixture missing from set dressing');
 const initialFrame=find('frame').innerHTML;advance('tap','frame');if(!find('frame').innerHTML.includes('frame-open.png'))throw Error('Frame image did not open');
@@ -31,4 +39,4 @@ load(27);advance('tap','curtain');interact(find('lamp'),find('frame'));if(find('
 load(20);const water=add('water',40,74,'น้ำฝน'),flower=find('flower');stage=2;drag={id:7,b:water,left:40,top:74,moved:true};release({pointerId:7,clientX:50,clientY:50});if(!won)throw Error('Drop priority chose scenery over flower');
 `,ctx);
 assert.equal(timers.size,1);
-console.log('PASS: hints, ticket taps, multitouch events, success timer cleanup, scenery states, fair feedback and item drop priority.');
+console.log('PASS: 30 pointer tap solutions, first-order taps/drags both ways, resident cat, hints, multitouch, timers, scenery states and drop priority.');

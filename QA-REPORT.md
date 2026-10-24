@@ -49,3 +49,13 @@ Dev และ Optimizer รวมการแก้แล้ว Tester ตรว
 - ตรวจรูปใหม่ด้วยตา: window panes open outward, curtain pulled to sides, storage interiors visible on frame/cushion/shelf/hatch/fridge/box
 - ไม่มี verified blocker; final rendered layout/touch และ onboarding difficulty ของผู้เล่นจริงยัง Pending จนตรวจเบราว์เซอร์/ผู้เล่นจริง
 - Live browser check: ภาพโหลดครบ เปิดบานหน้าต่างและตู้เย็นจริงได้; พบชั้นภาพหน้าต่างทับม่านปิด จึงแก้ curtainz3/windowz2 พร้อมปรับความคมชัดข้อความท้ายฉาก และตรวจซ้ำหลัง deploy
+## QA round 3 — Layout and fat cat
+
+User clarified firstlevel issue as images/positions overlapping. Existing live firstlevel answer verified by real click fish→cup and real drag fish→cup; no solution-rule failure reproduced.
+
+- Portable items now occupy four columns/two counter rows, with reflow after each spawn/removal.
+- Every solution step checked: max7 props, no portable item intersections, bounds inside counter; target geometry checked at320/390/460px (calculated, not native touch).
+- Independent Tester checked125 stage snapshots across30 levels: exactly one resident OR interactive cat; actor/fixture overlaps only intentional cat sitting on cushion.
+- Moved bubble/caption outside scene; moved hatch away from props, separated switch/shelf and frame/cat; resident cat is noninteractive so cannot steal a hit.
+- New generated fat-cat-boss.png restores grumpy orange chubby cafe boss. Complete original ears/tail/paws preserved.
+- check.cjs passes all30 actual pointer-tap solution paths; firstlevel tap and drag both directions; new rendered version awaiting final live visual verification.
