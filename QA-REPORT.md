@@ -86,3 +86,5 @@ User clarified firstlevel issue as images/positions overlapping. Existing live f
 - Declarative scene-layout.js: 11uniqueroomobjects,13stateassets, centralized fixture/actor/prop geometry. #roomObjects excludes gameplay.objselectors.
 - Dev: door toggles; espresso steam; pendant sharedswitchstate; requiredswitchlevel23/29 cannot bypass. Reset recreates11objects no duplicates. Servicecounter fill and pastrycase cover reflect referenceframe.
 - Tester independent nodecheck.cjs and nodecheck-scene-assets.cjs PASS; all30paths and newscene state/asset rules PASS. Rootlive finalalignment/visibility pending.
+
+Live browser verification (0ac8f07): Render Deploy succeeded/Live. All 23 scene/puzzle images loaded; 11 room object nodes present. Door image toggled, pendant and wall switch synchronized, lights-off/curtain-closed overlay opacity 0.62, espresso feedback shown, first puzzle solved through visible tap controls, replay restored initial scene. Composite screenshot: render-deploy-object-scene.png. Physical mobile touch testing remains outside this browser check.
