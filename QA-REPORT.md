@@ -101,3 +101,9 @@ Deployed fix b82452e and retested the actual page:
 - Reset immediately after a level 6 win restored the starting state; subsequent state check found no stale success dialog.
 
 Evidence: render-deploy-live-qa.png (actual final-level success dialog). Scope limits: desktop IAB viewport, not physical Android/iOS; actual 3-second finger hold, multitouch, and remaining 21 levels have not been manually completed in this round. Do not describe all 30 as real-browser playtested.
+
+## QA round 9 — Movable cat in every level
+Feature: exactly one `.obj[data-type=cat]` per level, including resident and puzzle cats. Cat drag retains a bounded location throughout the current level; spawning/reflow preserves it; reset/level change restores the cushion. Decorative resident cats cannot advance unrelated puzzle steps. Puzzle cat combinations work in both directions.
+Tester independently added pointer-handler regression coverage across all 30 levels: movement bounds, persistence, cancellation, reset, resident guards, and symmetric valid cat tap/drag combinations. `node check.cjs` and syntax check pass. Real deployed browser movement/reflow/target tests recorded below after deployment.
+
+Live verification on deployed 3fcb0d2: at narrow 304px desktop browser viewport, dragged resident cat in level 1 from cushion to center floor; release retained its new location. Reset restored x66/y38.5. In level 10 dragged puzzle cat to x38.3635/y50.292, opened curtain to spawn sunlight, verified coordinates unchanged, and completed sun-to-relocated-cat pairing through visible controls. Captured render-deploy-movable-cat.png. This checks real browser pointer input; physical phone touch remains untested.
