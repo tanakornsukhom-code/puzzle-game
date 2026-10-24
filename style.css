@@ -101,3 +101,10 @@ dialog .level-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}dial
 #objects .obj[data-type="shadow"] .item-art{filter:brightness(.28);opacity:.55}
 #objects .obj[data-type="shadow"] small{opacity:0}
 #objects .obj[data-type="shadow"]:hover small,#objects .obj[data-type="shadow"]:focus-visible small{opacity:1}
+/* Persistent puzzle feedback names the changed state without blocking touch. */
+.state-label{position:absolute;left:50%;top:0;transform:translate(-50%,-75%);max-width:140%;padding:2px 7px;border:1px solid #d0bc91;border-radius:9px;background:#fff6dff5;color:#5b4334;font:12px/1.4 'Itim',cursive;white-space:nowrap;pointer-events:none;z-index:2}
+.obj[data-layout-role="actor"] .state-label{top:100%;margin-top:3px;transform:translateX(-50%)}
+.obj[data-puzzle-state="sweet"] .state-label{background:#fff0c8;border-color:#c8a360}
+.obj[data-puzzle-state="soaked"] .state-label{background:#e6f1eb;border-color:#a7c7b8}
+.obj[data-puzzle-state="listening"] .state-label{background:#fbe8ce}
+#scene[data-counter-layout="compact"] .obj[data-layout-role="prop"] .state-label{top:0;transform:translateX(-50%);font-size:10px;padding:1px 5px}
