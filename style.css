@@ -1,45 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Noto+Sans+Thai:wght@400;600;700&display=swap');
-:root{font-family:'Noto Sans Thai',sans-serif;color:#503c35;background:#ece7df;font-synthesis:none}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;background:radial-gradient(ellipse at 20% 20%,#e0ebe1,transparent 50%),#eee5db}button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible{outline:3px solid #247f77;outline-offset:3px}.game{width:min(100%,460px);background:#fffaf0;min-height:100svh;box-shadow:0 0 70px #5c49351c;position:relative;padding-bottom:env(safe-area-inset-bottom)}header{height:72px;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px dashed #e7dac4}header button{width:40px;height:40px;border:1.5px solid #765d47;border-radius:50%;background:#fff9e8;box-shadow:0 3px #e6d4b7;font-size:22px}.brand{font:26px 'Itim',cursive;transform:rotate(-3deg)}.brand span{color:#dd7759;margin-left:3px}.order{padding:15px 24px 17px;text-align:center}.meta{display:flex;justify-content:space-between;font-size:11px;font-weight:700;color:#997b5e}.meta span:first-child{color:#b96848}h1{font:26px/1.35 'Itim',cursive;margin:12px 0 5px}p{margin:0;font-size:12px;color:#8b7768}#scene{position:relative;aspect-ratio:2/2.43;overflow:hidden;isolation:isolate;background:#e2ebcf url('assets/cafe-layered-v2.png') center/100% 100% no-repeat;border-block:2px solid #8e725d}.wall-fallback{position:absolute;inset:0;z-index:-2;background:linear-gradient(0deg,#d7ae80 0 29%,#edd4ba 29% 32%,transparent 32%),repeating-linear-gradient(90deg,#e0e9cb 0 25px,#e9efd9 25px 50px)}.art-ready .wall-fallback{display:none}.sign{position:absolute;top:7%;left:7%;background:#fff8de;border:3px solid #a37b55;padding:8px;transform:rotate(-5deg);font:11px 'Itim';box-shadow:2px 3px #977b4633}.sign b{font-size:13px}.bubble{position:absolute;top:37%;right:5%;max-width:55%;padding:10px 14px;background:#fffdf4;border:1.5px solid #72563e;border-radius:20px 20px 0 20px;font:17px 'Itim';box-shadow:0 3px #604e2214;z-index:2}.scene-caption{position:absolute;bottom:9px;width:100%;text-align:center;font:12px 'Itim';color:#856648;pointer-events:none}.obj{position:absolute;background:none;border:0;padding:0;width:20%;height:20%;display:grid;place-items:center;touch-action:none;user-select:none;z-index:3;filter:drop-shadow(0 5px 2px #68482125);transition:filter .15s}.obj svg{width:100%;height:100%;overflow:visible;pointer-events:none}.obj.selected{filter:drop-shadow(0 0 7px #fffc8e);outline:3px dashed #bc7639;outline-offset:1px;border-radius:18px}.obj.dragging{z-index:15;transition:none;scale:1.08}.obj.hidden{display:none}.obj small{position:absolute;bottom:-4px;background:#fff9e8dd;padding:1px 7px;border-radius:10px;font-size:10px;pointer-events:none}.obj.target small{opacity:0}.obj:hover small,.obj:focus-visible small{opacity:1}#toast{min-height:48px;display:grid;place-items:center;text-align:center;padding:9px 20px;font-size:12px;color:#927459}footer{display:flex;align-items:center;justify-content:space-between;padding:2px 24px 12px}footer button{border:1.5px solid #947557;background:#f9e3a4;border-radius:14px;box-shadow:0 3px #c9aa73;padding:8px 13px;font-size:18px;display:grid;line-height:1.1;gap:4px}footer button span{font-size:11px}.gesture{text-align:center;color:#aa9480;font-size:10px;line-height:1.8}.dots{display:flex;gap:7px;justify-content:center;padding:4px 0 14px}.dot{width:8px;height:8px;border-radius:50%;background:#e5d8c1}.dot.active{background:#da8765;width:22px;border-radius:6px}.dot.done{background:#82ac8b}dialog{border:2px solid #8b6a4d;border-radius:24px;padding:28px 24px;background:#fffaf0;color:#503c35;max-width:360px;width:88%;box-shadow:0 14px 0 #674f3822;text-align:center}dialog::backdrop{background:#3d302b77;backdrop-filter:blur(3px)}dialog h2{font:29px 'Itim';margin:5px 0 14px}dialog p{font-size:14px;line-height:1.9}dialog button{border:1.5px solid #886343;border-radius:12px;background:#f6d987;padding:11px 20px;margin-top:18px;box-shadow:0 3px #c7a570}dialog .level-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}dialog .level-grid button{padding:12px 0}dialog .secondary{background:transparent;margin-left:8px}.success-icon{font-size:55px}#effect{position:absolute;inset:0;pointer-events:none;z-index:20;display:grid;place-items:center;font:90px 'Itim';color:#fff5a1;text-shadow:0 3px #ab693c}.celebrate{animation:pop .6s ease-out}@keyframes pop{from{transform:scale(.2);opacity:0}to{transform:scale(1);opacity:1}}@media(min-width:600px){.game{min-height:0;border:2px solid #c7b79d;border-radius:25px;overflow:hidden;margin:20px 0}}@media(max-height:740px) and (max-width:599px){header{height:58px}.order{padding:10px 20px}h1{font-size:23px;margin:6px 0}#toast{min-height:38px}footer{padding-bottom:8px}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-
-#scene::after{content:attr(data-zone);position:absolute;top:12px;right:12px;background:#fff8e6e8;border:1px solid #96795e;padding:4px 10px;border-radius:8px;font-size:11px;pointer-events:none}.dots{flex-wrap:wrap;padding-inline:20px}dialog{max-height:85svh;overflow:auto}.level-grid button{font-size:14px}
-
-/* Individually generated transparent item art. */
-.item-art{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none}.obj{align-content:center}.obj small{z-index:1}
-
-/* Fixtures use generated state illustrations, aligned to a fixed scene canvas. */
-.scenery{z-index:2;filter:none;border-radius:7px;min-width:36px;min-height:36px}
-.scenery-art{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none;transform-origin:center;transition:filter .25s ease}
-.scenery small{bottom:0;font-size:9px;opacity:0}
-.scenery:hover small,.scenery:focus-visible small,.scenery.selected small,.scenery-used small{opacity:1}
-.scenery.selected{outline:3px dashed #bc7639}
-.scenery-used .scenery-art{animation:fixture-change .35s ease-out}
-@keyframes fixture-change{from{opacity:.55;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
-/* Shade the room behind interactive objects and speech, without blocking input. */
+:root{font-family:'Noto Sans Thai',sans-serif;color:#5b4334;background:#e7ece2;font-synthesis:none;--ivory:#fff6df;--sage:#b5c8ad;--wood:#bb8052;--peach:#e4b09e;--espresso:#5b4334;--brass:#c19a55}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;display:grid;place-items:center;background:#e7ece2}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
+button:focus-visible{outline:3px solid #3c7564;outline-offset:3px}
+.game{width:min(100%,460px);background:var(--ivory);min-height:100svh;position:relative;padding-bottom:env(safe-area-inset-bottom);box-shadow:0 12px 50px #5b433414}
+header{height:72px;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;background:#f8edd5;border-bottom:3px solid #bb805263}
+header button{width:40px;height:40px;border:1px solid #9eac8f;border-radius:13px;background:#e1e9d7;box-shadow:0 2px #a7b69a;font-size:22px}
+.brand{font:26px 'Itim',cursive;letter-spacing:.2px}.brand span{color:#a76d47;margin-left:3px}
+.order{padding:15px 24px 14px;text-align:center}
+.meta{display:flex;justify-content:space-between;gap:8px;font-size:11px;font-weight:700;color:#807653}.meta span:first-child{color:#8b6346}
+h1{font:26px/1.35 'Itim',cursive;margin:12px 0 5px}
+p{margin:0;font-size:12px;color:#81735f}
+.bubble{position:static;margin:0 16px 12px;padding:9px 13px;border:1px solid #c5d0b9;border-radius:12px;background:#edf1e5;font:15px/1.5 'Itim',cursive;min-height:41px;text-align:center;pointer-events:none}
+/* Every viewport shares the same scene geometry and item lanes. */
+#scene{position:relative;aspect-ratio:2/2.43;overflow:hidden;isolation:isolate;background:#e2ebcf url('assets/cafe-garden-v3.png') center/100% 100% no-repeat;border-block:1px solid #b38d67}
+.wall-fallback{position:absolute;inset:0;z-index:-2;background:#dce4ca}.art-ready .wall-fallback{display:none}
+.sign{display:none}
 #scene::before{content:'';position:absolute;inset:0;z-index:1;background:#342e7040;opacity:0;pointer-events:none;transition:opacity .35s ease}
 #scene.room-dark::before{opacity:1}
-.sign{display:none}
-.bubble{pointer-events:none}
-#modal .level-grid{grid-template-columns:repeat(5,1fr)}
-/* The curtain can be grabbed at its right edge; the window remains reachable. */
+.scene-caption{position:static;display:block;width:100%;margin:0;padding:6px 10px;text-align:center;font:11px/1.5 'Itim',cursive;color:#7c715b;background:#f6edd9;pointer-events:none}
+.obj{position:absolute;background:none;border:0;padding:0;width:20%;height:20%;display:grid;place-items:center;align-content:center;touch-action:none;user-select:none;z-index:3;filter:drop-shadow(0 4px 2px #68482124);transition:filter .15s}
+.obj svg{width:100%;height:100%;overflow:visible;pointer-events:none}
+.item-art,.scenery-art{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none}
+.obj.selected{filter:drop-shadow(0 0 6px #fff0a3);outline:2px dashed #90663e;outline-offset:2px;border-radius:12px}
+.obj.dragging{z-index:15;transition:none;scale:1.08}.obj.hidden{display:none}
+.obj small{position:absolute;bottom:-4px;max-width:112%;padding:1px 6px;border-radius:6px;font-size:10px;line-height:1.5;background:#fff6dfed;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none;z-index:1}
+.obj.target small{opacity:0}.obj:hover small,.obj:focus-visible small{opacity:1}
+/* Generated fixture artwork stays within its original, stable hitbox. */
+.scenery{z-index:2;filter:drop-shadow(0 2px 1px #5b43341c);border-radius:7px;min-width:36px;min-height:36px}
+.scenery-art{transform-origin:center;transition:filter .25s ease}
+.scenery small{bottom:0;font-size:9px;opacity:0}
+.scenery:hover small,.scenery:focus-visible small,.scenery.selected small,.scenery-used small{opacity:1}
+.scenery-used .scenery-art{animation:fixture-change .35s ease-out}
+/* The right-edge handle leaves the center of the window available to touch. */
 .scenery-curtain{z-index:3;pointer-events:none}
 .scenery-curtain::after{content:'';position:absolute;top:0;right:0;bottom:0;width:36px;pointer-events:auto}
 .scenery-window{z-index:2}
-.bubble{top:43%;left:4%;right:auto;max-width:34%;font-size:15px;padding:8px 10px}
+.sign-face{position:absolute;left:15%;top:60%;width:70%;height:22%;display:grid;place-items:center;font:14px/1.1 'Itim',cursive;color:#5b4334;pointer-events:none}
+.scenery-sign small{display:none}
 .scenery-frame[data-clue="floor"]::after{content:'↓';position:absolute;right:4px;bottom:-17px;font-size:30px;line-height:1;color:#5d4529;text-shadow:0 1px #fff3bd;pointer-events:none}
-.action-react{animation:item-react .4s ease-in-out}
-@keyframes item-react{0%,100%{transform:rotate(0)}30%{transform:rotate(-6deg)}70%{transform:rotate(6deg)}}
-
-/* Keep a named control available if an illustration cannot be loaded. */
-.scenery[data-art-missing] small{opacity:1}
-.scenery[data-art-missing]{outline:1px dashed #947557}
-
-.scene-caption{color:#503c35;background:#fff8e6e8;padding:3px 8px;bottom:0}
-
-/* The resident keeps the café character visible without intercepting puzzle input. */
+.scenery[data-art-missing]{outline:1px dashed #947557}.scenery[data-art-missing] small{display:block;opacity:1}
 .resident-cat{position:absolute;left:66%;top:35%;width:27%;height:22%;object-fit:contain;z-index:3;pointer-events:none;user-select:none;filter:drop-shadow(0 3px 2px #68482125)}
-/* Keep names inside each object's lane on narrow screens. */
-.obj small{max-width:112%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.5}
+#toast{min-height:48px;display:grid;place-items:center;text-align:center;padding:9px 20px;font-size:12px;line-height:1.6;color:#7d6e56}
+footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 24px 12px}
+footer button{border:1px solid #94a58a;background:#dce6d1;border-radius:13px;box-shadow:0 3px #afbea1;padding:8px 13px;font-size:18px;display:grid;line-height:1.1;gap:4px}
+footer button span{font-size:11px}.gesture{text-align:center;color:#8c8069;font-size:10px;line-height:1.8}
+.dots{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;padding:4px 20px 14px}
+.dot{width:8px;height:8px;border-radius:50%;background:#ded8c2}.dot.active{background:#bd875e;width:22px;border-radius:6px}.dot.done{background:#91ac89}
+dialog{border:1px solid #b89a72;border-radius:22px;padding:28px 24px;background:var(--ivory);color:var(--espresso);max-width:360px;width:88%;max-height:85svh;overflow:auto;box-shadow:0 12px 35px #44382124;text-align:center}
+dialog::backdrop{background:#3d302b77;backdrop-filter:blur(3px)}dialog h2{font:29px 'Itim';margin:5px 0 14px}dialog p{font-size:14px;line-height:1.9}
+dialog button{border:1px solid #94a58a;border-radius:12px;background:#dce6d1;padding:11px 20px;margin-top:18px;box-shadow:0 3px #afbea1}
+dialog .level-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}dialog .level-grid button{padding:12px 0;font-size:14px}dialog .secondary{background:transparent;margin-left:8px}.success-icon{font-size:55px}
+#effect{position:absolute;inset:0;pointer-events:none;z-index:20;display:grid;place-items:center;font:90px 'Itim';color:#fff5a1;text-shadow:0 3px #ab693c}.celebrate{animation:pop .6s ease-out}.action-react{animation:item-react .4s ease-in-out}
+@keyframes pop{from{transform:scale(.2);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes fixture-change{from{opacity:.55;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+@keyframes item-react{0%,100%{transform:rotate(0)}30%{transform:rotate(-6deg)}70%{transform:rotate(6deg)}}
+@media(min-width:600px){.game{min-height:0;border:1px solid #c6bda6;border-radius:22px;overflow:hidden;margin:20px 0}}
+@media(max-height:740px) and (max-width:599px){header{height:58px}.order{padding:10px 20px}h1{font-size:23px;margin:6px 0}#toast{min-height:38px}footer{padding-bottom:8px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* Dialogue sits above the room so it never hides actors or puzzle objects. */
-.bubble{position:static;max-width:none;margin:0 16px 10px;padding:9px 13px;border-radius:12px;background:#fffdf4;font-size:15px;line-height:1.5;min-height:41px;box-shadow:0 2px #604e2214}
-.scene-caption{position:static;display:block;width:100%;margin:0;padding:5px 10px;font-size:11px;line-height:1.5}

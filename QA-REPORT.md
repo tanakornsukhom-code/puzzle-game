@@ -60,3 +60,8 @@ User clarified firstlevel issue as images/positions overlapping. Existing live f
 - New generated fat-cat-boss.png restores grumpy orange chubby cafe boss. Complete original ears/tail/paws preserved.
 - check.cjs passes all30 actual pointer-tap solution paths; firstlevel tap and drag both directions; new rendered version awaiting final live visual verification.
 - Final live check on deployed bd58755: navigated all30 levels through actual UI; initial portable-item DOM rectangles had zero overlaps, exactly1 cat and zero horizontal overflow in every level. Newly laid-out firstlevel completed via real drag fish→cup. All scene images loaded. Screenshot: render-deploy-layout-cat.png (local QA artifact, ignored by Git). Human difficulty/native mobile touch remains unverified.
+## QA round 4 — Garden café interior
+
+- Design: explicit service-left / clear middle / cat seating-right zones; ivory botanical wall, sage wainscoting, honey oak, brass task light, natural light and restrained plants. Background anchors and prop counter unchanged.
+- Default decorative curtains open; teaching/dark levels still start opposite required action. Sign captions match actual state and sit inside plaque.
+- Dev + Optimizer merged; node check.cjs PASS all30 solutions/pointer paths/counter geometry/max7/fatcat invariants. Final live visual pending coordinator.
